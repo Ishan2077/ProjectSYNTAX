@@ -1,6 +1,10 @@
 #pragma once
 
 #include "Core.h"
+#include "Events/Event.h"
+//#include <Platform/Windows/WindowsWindow.h>
+#include "Window.h"
+#include "SkyEngine/Events/ApplicationEvent.h"
 
 namespace SkyEngine 
 {
@@ -17,6 +21,12 @@ namespace SkyEngine
 			Application(Sandbox's Application.cpp file). */
 
 			void Run(); //runs our application
+
+			void OnEvent(Event& e);
+	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
 	};
 
 	//To be defined in CLIENT.

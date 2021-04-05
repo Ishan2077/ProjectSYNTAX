@@ -1,0 +1,6 @@
+[submodule "SkyEngine/vendor/spdlog"]
+	path = SkyEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "SkyEngine/vendor/GLFW"]
+	path = SkyEngine/vendor/GLFW
+	url = https://github.com/TheCherno/GLFW

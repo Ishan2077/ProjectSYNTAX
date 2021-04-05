@@ -1,36 +1,66 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="SkyEngine">
+      <UniqueIdentifier>{52A23481-BE0C-E9F7-074B-9A9D73F4C64C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SkyEngine\Events">
+      <UniqueIdentifier>{F63DF6BF-E236-1512-0B69-FA96F7C0F41D}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\SkyEngine\Core.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\SkyEngine.h" />
     <ClInclude Include="src\SkyEngine\Application.h">
-      <Filter>Header Files</Filter>
+      <Filter>SkyEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\SkyEngine.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\SkyEngine\Core.h">
+      <Filter>SkyEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\SkyEngine\EntryPoint.h">
-      <Filter>Header Files</Filter>
+      <Filter>SkyEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\SkyEngine\Events\ApplicationEvent.h">
+      <Filter>SkyEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SkyEngine\Events\Event.h">
+      <Filter>SkyEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SkyEngine\Events\KeyEvent.h">
+      <Filter>SkyEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SkyEngine\Events\MouseEvent.h">
+      <Filter>SkyEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SkyEngine\Log.h">
+      <Filter>SkyEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SkyEngine\Window.h">
+      <Filter>SkyEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sepch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\SkyEngine\Application.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\SkyEngine\Application.cpp">
+      <Filter>SkyEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SkyEngine\Events\KeyEvent.cpp">
+      <Filter>SkyEngine\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SkyEngine\Log.cpp">
+      <Filter>SkyEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sepch.cpp" />
   </ItemGroup>
 </Project>
