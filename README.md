@@ -1,6 +1,4 @@
 # ProjectSYNTAX
 
-Project SYNTAX is deep in development for **Windows** platform.
-The project will showcase something truly spectacular.
-
-Details dropping soon!
+Project Syntax is deep in development to support multi-platform, seamless and collaborative development on video games, applications, AR/VR Projects and more!
+The project will feature a built-in Physics and Rendering Engine, Artificial Intelligence(AI) Systems and highly customizable tools to ease development.
