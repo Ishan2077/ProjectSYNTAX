@@ -3,9 +3,10 @@
 #include "SkyEngine/Events/ApplicationEvent.h"
 #include "SkyEngine/Events/MouseEvent.h"
 #include "SkyEngine/Events/KeyEvent.h"
-#include "SkyEngine/Events/Event.h"
+//#include "SkyEngine/Events/Event.h"
 
-namespace SkyEngine {
+namespace SkyEngine 
+{
 
 	static bool s_GLFWInitialized = false;
 
@@ -31,12 +32,15 @@ namespace SkyEngine {
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
+
 		SE_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
+		
 		if (!s_GLFWInitialized)
 		{
 			// TODO: glfwTerminate on system shutdown
 			int success = glfwInit();
 			SE_CORE_ASSERT(success, "Could not intialize GLFW!");
+			
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
@@ -88,8 +92,8 @@ namespace SkyEngine {
 					data.EventCallback(event);
 					break;
 				}
-				}
-			});
+		}
+	});
 
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
 			{
@@ -109,8 +113,8 @@ namespace SkyEngine {
 					data.EventCallback(event);
 					break;
 				}
-				}
-			});
+			}
+		});
 
 		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)
 			{
@@ -127,4 +131,28 @@ namespace SkyEngine {
 				MouseMovedEvent event((float)xPos, (float)yPos);
 				data.EventCallback(event);
 			});
+}
+
+
+	void WindowsWindow::Shutdown()
+	{
+		glfwDestroyWindow(m_Window);
 	}
+	void WindowsWindow::OnUpdate()
+	{
+		glfwPollEvents();
+		glfwSwapBuffers(m_Window);
+	}
+	void WindowsWindow::SetVSync(bool enabled)
+	{
+		if (enabled)
+			glfwSwapInterval(1);
+		else
+			glfwSwapInterval(0);
+		m_Data.VSync = enabled;
+	}
+	bool WindowsWindow::IsVSync() const
+	{
+		return m_Data.VSync;
+	}
+}

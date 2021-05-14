@@ -62,14 +62,17 @@ project "SkyEngine"
 
 	filter "configurations:Debug"
 		defines "SE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	 filter "configurations:Release"
 		defines "SE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	 filter "configurations:Dist"
 		defines "SE_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 	 filter {"system:windows", "configurations:Release"}
@@ -108,12 +111,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "SE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	 filter "configurations:Release"
 		defines "SE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	 filter "configurations:Dist"
 		defines "SE_DIST"
+		buildoptions "/MD"
 		optimize "On"

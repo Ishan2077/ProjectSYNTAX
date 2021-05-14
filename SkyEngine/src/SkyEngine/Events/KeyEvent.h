@@ -1,20 +1,19 @@
 #pragma once
-#include "SkyEngine/Events/Event.h"
 
+#include "Event.h"
+
+#include <sstream>
 
 namespace SkyEngine {
 
 	class SKYENGINE_API KeyEvent : public Event
 	{
 	public:
-		inline int KeyCode GetKeyCode() const 
-		{ 
-			return m_KeyCode; 
-		}
+		inline int GetKeyCode() const { return m_KeyCode; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
-		KeyEvent(const KeyCode keycode)
+		KeyEvent(int keycode)
 			: m_KeyCode(keycode) {}
 
 		int m_KeyCode;
@@ -35,10 +34,6 @@ namespace SkyEngine {
 			return ss.str();
 		}
 
-		static EventType GetStaticType() {return EventType::KeyPressed;}
-		virtual EventType GetEventType() const override { return GetStaticType();  }
-		virtual const char* GetName() const override { return "KeyPressed"; }
-
 		EVENT_CLASS_TYPE(KeyPressed)
 	private:
 		int m_RepeatCount;
@@ -47,7 +42,7 @@ namespace SkyEngine {
 	class SKYENGINE_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(const KeyCode keycode)
+		KeyReleasedEvent(int keycode)
 			: KeyEvent(keycode) {}
 
 		std::string ToString() const override
@@ -58,21 +53,5 @@ namespace SkyEngine {
 		}
 
 		EVENT_CLASS_TYPE(KeyReleased)
-	};
-
-	class SKYENGINE_API KeyTypedEvent : public KeyEvent
-	{
-	public:
-		KeyTypedEvent(const KeyCode keycode)
-			: KeyEvent(keycode) {}
-
-		std::string ToString() const override
-		{
-			std::stringstream ss;
-			ss << "KeyTypedEvent: " << m_KeyCode;
-			return ss.str();
-		}
-
-		EVENT_CLASS_TYPE(KeyTyped)
 	};
 }
